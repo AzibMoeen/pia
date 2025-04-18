@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { navItems } from '../data';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,11 +28,15 @@ const Navbar = () => {
 
 
           <div className="hidden lg:flex items-center space-x-8">
-            <Link to="#" className="text-green-800 hover:text-green-600 font-medium hover:underline-offset-auto">Where we Fly</Link>
-            <Link to="#" className="text-green-800 hover:text-green-600 font-medium hover:underline-offset-auto">Experience</Link>
-            <Link to="#" className="text-green-800 hover:text-green-600 font-medium hover:underline-offset-auto">Loyalty Programs</Link>
-            <Link to="#" className="text-green-800 hover:text-green-600 font-medium hover:underline-offset-auto">Deals</Link>
-            <Link to="#" className="text-green-800 hover:text-green-600 font-medium hover:underline">Corporate Website</Link>
+            {navItems.map((item) => (
+              <Link 
+                key={item.name} 
+                to={item.link} 
+                className="text-green-800 hover:bg-green-100 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
         
@@ -69,42 +74,15 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-inner">
-            <Link 
-              to="#" 
-              className="block px-3 py-2 text-green-800 hover:bg-green-100 rounded-md"
-            >
-              Where we Fly
-            </Link>
-            <Link 
-              to="#" 
-              className="block px-3 py-2 text-green-800 hover:bg-green-100 rounded-md"
-            >
-              Experience
-            </Link>
-            <Link 
-              to="#"
-              className="block px-3 py-2 text-green-800 hover:bg-green-100 rounded-md"
-            >
-              Loyalty Programs
-            </Link>
-            <Link 
-              to="#" 
-              className="block px-3 py-2 text-green-800 hover:bg-green-100 rounded-md"
-            >
-              Deals
-            </Link>
-            <Link 
-              to="#" 
-              className="block px-3 py-2 text-green-800 hover:bg-green-100 rounded-md"
-            >
-              Corporate Website
-            </Link>
-            <Link 
-              to="#" 
-              className="block px-3 py-2 bg-green-800 text-white rounded-md"
-            >
-              Award +Plus Login
-            </Link>
+            {navItems.map((item) => (
+              <Link 
+                key={item.name} 
+                to={item.link} 
+                className="text-green-800 hover:bg-green-100 block px-3 py-2 rounded-md text-base font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
         </div>
       )}

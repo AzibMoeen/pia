@@ -166,3 +166,11 @@ export  const settings = {
     },
   ],
 }
+
+export  const navItems = [
+  { name: 'Where we Fly', link: '#' },
+  { name: 'Experience', link: '#' },
+  { name: 'Loyalty Programs', link: '#' },
+  { name: 'Deals', link: '#' },
+  { name: 'Corporate Website', link: '#' },
+]
